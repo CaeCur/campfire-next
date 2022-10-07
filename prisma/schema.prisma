@@ -15,8 +15,8 @@ datasource db {
 }
 
 model Campground {
-    id          String  @id @default(auto()) @map("_id") @db.ObjectId
-    title       String
+    id          String @id @default(auto()) @map("_id") @db.ObjectId
+    title       String @unique
     description String
     // images      Image[]
 }
