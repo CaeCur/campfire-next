@@ -14,6 +14,21 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model Campground {
+    id          String  @id @default(auto()) @map("_id") @db.ObjectId
+    title       String
+    description String
+    // images      Image[]
+}
+
+// model Image {
+//     id           String      @id @default(auto()) @map("_id") @db.ObjectId
+//     url          String
+//     filename     String
+//     campground   Campground? @relation(fields: [campgroundId], references: [id])
+//     campgroundId String?     @db.ObjectId
+// }
+
 // model Example {
 //     id String @id @default(cuid())
 // }
