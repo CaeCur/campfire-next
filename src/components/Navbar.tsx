@@ -8,7 +8,7 @@ const Navbar = () => {
   const [showMobile, setShowMobile] = useState(false);
 
   return (
-    <nav className="w-full border-b border-blue-300 bg-gray-400 px-2 py-2.5">
+    <nav className="fixed w-full border-b border-blue-300 bg-gray-400 px-2 py-2.5">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         {/* Logo block */}
         <Link href="/" passHref>
