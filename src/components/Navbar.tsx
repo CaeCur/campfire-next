@@ -4,12 +4,29 @@ import Link from "next/link";
 //icons import
 import { FireIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
+const navItems: { name: string; dest: string }[] = [
+  { name: "Home", dest: "/" },
+  { name: "Campgrounds", dest: "/campgrounds" },
+  { name: "Register", dest: "/register" },
+  { name: "Login", dest: "/login" },
+];
+
 const Navbar = () => {
   const [showMobile, setShowMobile] = useState(false);
+  const [mobileHeight, setMobileHeight] = useState("h-0");
+
+  //trying to figure out animation for mobile menu
+  // const growMobileMenu = () => {
+  //   if (mobileHeight === "h-0") {
+  //     setMobileHeight("h-full");
+  //   } else {
+  //     setMobileHeight("h-0");
+  //   }
+  // };
 
   return (
-    <nav className="fixed w-full border-b border-blue-300 bg-gray-400 px-2 py-2.5">
-      <div className="container mx-auto flex flex-wrap items-center justify-between">
+    <nav className="sticky top-0 z-50 mt-0 w-full bg-slate-900 px-2 py-2.5 md:fixed md:bg-transparent md:bg-gradient-to-b md:from-slate-900">
+      <div className="container mx-auto flex flex-wrap items-center justify-between text-white">
         {/* Logo block */}
         <Link href="/" passHref>
           <div className="flex items-center">
@@ -23,44 +40,33 @@ const Navbar = () => {
         {/* mobile menu burger */}
         <button
           onClick={() => setShowMobile(!showMobile)}
-          data-collapse-toggle="navbar"
+          data-collapse-toggle="navMenu"
           type="button"
           aria-controls="navbar-default"
           aria-expanded="false"
-          className="ml-3 rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+          className="rounded-lg bg-slate-600 p-2 text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-slate-100 md:hidden"
         >
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
 
         {/* nav items */}
         <div
-          className={`${!showMobile && "hidden"} w-full md:block md:w-auto`}
-          id="navbar"
+          className={`${
+            !showMobile && "hidden"
+          } w-full transition-all duration-500 ease-out md:block md:h-full md:w-auto`}
+          id="navMenu"
         >
-          <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium ">
-            <li className="border-blue-500 hover:text-blue-700">
-              <Link href="/" passHref>
-                <a>Home</a>
-              </Link>
-            </li>
-
-            <li className="border-blue-500 hover:text-blue-700">
-              <Link href="/" passHref>
-                <a>Campgrounds</a>
-              </Link>
-            </li>
-
-            <li className="border-blue-500 hover:text-blue-700">
-              <Link href="/" passHref>
-                <a>Register</a>
-              </Link>
-            </li>
-
-            <li className="border-blue-500 hover:text-blue-700">
-              <Link href="/" passHref>
-                <a>Login</a>
-              </Link>
-            </li>
+          <ul className="flex flex-col p-2 duration-300 ease-out sm:transition-none md:flex-row md:space-x-4 md:text-sm md:font-medium">
+            {navItems.map((item) => (
+              <li
+                key={item.name}
+                className="cursor-pointer rounded-lg py-1 px-2 transition duration-500 ease-in-out hover:bg-red-700 hover:bg-opacity-70"
+              >
+                <Link href={item.dest} passHref>
+                  <a>{item.name}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

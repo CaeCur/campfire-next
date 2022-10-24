@@ -14,13 +14,13 @@ const Home: NextPage = () => {
       </Head>
 
       <div
-        className="flex h-screen w-full bg-cover bg-center bg-no-repeat text-center text-white"
+        className="flex h-screen w-screen bg-cover bg-center bg-no-repeat text-center text-white"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/dv5vm4sqh/image/upload/v1640878650/CampFire/campfire-cover_efr5mj.jpg')",
         }}
       >
-        <div className="max-w-60 align-center flex h-full w-full flex-col justify-center p-3">
+        <div className="align-center flex h-full w-full flex-col justify-center p-3">
           <main className="px-3">
             <h1 className="mb-3 text-5xl">Campfire</h1>
             <p className="text-l">
