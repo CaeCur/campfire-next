@@ -13,7 +13,6 @@ const navItems: { name: string; dest: string }[] = [
 
 const Navbar = () => {
   const [showMobile, setShowMobile] = useState(false);
-  const [mobileHeight, setMobileHeight] = useState("h-0");
 
   //trying to figure out animation for mobile menu
   // const growMobileMenu = () => {
@@ -60,7 +59,7 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li
                 key={item.name}
-                className="cursor-pointer rounded-lg py-1 px-2 transition duration-500 ease-in-out hover:bg-red-700 hover:bg-opacity-70"
+                className="cursor-pointer rounded-lg py-1 px-2 transition duration-500 ease-in-out hover:bg-blue-800 hover:bg-opacity-80"
               >
                 <Link href={item.dest} passHref>
                   <a>{item.name}</a>
