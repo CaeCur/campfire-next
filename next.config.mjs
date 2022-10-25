@@ -1,4 +1,5 @@
 // @ts-check
+import { hostname } from "os";
 import { env } from "./src/env/server.mjs";
 
 /**
@@ -20,5 +21,8 @@ export default defineNextConfig({
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
+  },
+  images: {
+    remotePatterns: [{ hostname: "res.cloudinary.com" }],
   },
 });
